@@ -1,0 +1,15 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": ["airbnb/base"],
+  "rules": {
+    "semi": "warn",
+    "no-console": "warn",
+    "eol-last": "warn",
+    "no-tabs": "warn"
+    // "indent": ["error", "tab"]
+  }
+}
