@@ -1,0 +1,1 @@
+import"./index.html";import"./style.scss";function createComponent(e,t){const n=document.createElement(e,t);return n.classList.add(t),n}function createWindow(){const e=createComponent("div","main-div");document.body.append(e);const t=createComponent("textarea","text-area");t.style.backgroundColor="rgb(153, 170, 181)",e.append(t)}createWindow();

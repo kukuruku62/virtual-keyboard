@@ -6,10 +6,12 @@
   },
   "extends": ["airbnb/base"],
   "rules": {
-    "semi": "warn",
-    "no-console": "warn",
-    "eol-last": "warn",
-    "no-tabs": "warn"
+    "import/extensions": "off"
+    // "semi": "warn",
+    // "no-console": "warn",
+    // "eol-last": "warn",
+    // "no-tabs": "warn",
+    // "linebreak-style": ["off", "windows"]
     // "indent": ["error", "tab"]
   }
 }

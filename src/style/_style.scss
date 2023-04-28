@@ -1,0 +1,22 @@
+body {
+  background-color: $back-body;
+  color: $text;
+}
+
+.main-div {
+  width: 1040px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $back-main-div;
+  margin: 0 auto;
+}
+
+.text-area {
+  width: 1000px;
+  height: 200px;
+  border: $textarea-border 3px solid;
+  border-radius: 10px;
+  margin: 0 auto;
+  align-content: center;
+}
