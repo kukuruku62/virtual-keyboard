@@ -349,4 +349,4 @@ template {
   display: none;
 }
 
-body{background-color:#353535;color:#a77c7c}.main-div{width:1040px;height:100vh;display:flex;flex-direction:column;background-color:#4a4a4a;margin:0 auto}.text-area{width:1000px;height:200px;border:#f57731 3px solid;border-radius:10px;margin:0 auto;align-content:center}
+body{background-color:#353535;color:#a77c7c;height:100vh}.main-div{padding-top:20px;width:1040px;background-color:#4a4a4a;margin:0 auto}.title{font-family:"Trebuchet MS","Lucida Sans Unicode","Lucida Grande","Lucida Sans",Arial,sans-serif;font-size:20px;font-weight:700}.text-area{width:1000px;height:100px;border:#f57731 3px solid;border-radius:10px;margin:0 auto;overflow:hidden;display:block;margin-bottom:20px}.keyboard{width:1000px;border-radius:10px;border:#f57731 2px solid;margin:0 auto;height:300px}
