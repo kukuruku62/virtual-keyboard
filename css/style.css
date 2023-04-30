@@ -1,0 +1,51 @@
+@import 'libs/normalize.css';
+body {
+  background-color: rgb(53, 53, 53);
+  color: rgb(167, 124, 124);
+  height: 100vh;
+}
+
+.main-div {
+  padding-top: 10px;
+  width: 1040px;
+  background-color: rgb(74, 74, 74);
+  margin: 0 auto;
+}
+
+.title {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 auto 10px;
+}
+
+.text-area {
+  width: 1000px;
+  height: 100px;
+  border: rgb(245, 119, 49) 3px solid;
+  border-radius: 10px;
+  margin: 0 auto;
+  overflow: hidden;
+  display: block;
+  margin-bottom: 20px;
+  background-color: rgb(153, 170, 181);
+}
+
+.keyboard {
+  width: 1000px;
+  border-radius: 10px;
+  border: rgb(245, 119, 49) 2px solid;
+  margin: 0 auto;
+  height: 300px;
+}
+
+.single-key {
+  user-select: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.single-key:hover {
+  background-color: aqua;
+}

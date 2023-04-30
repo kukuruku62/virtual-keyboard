@@ -28,12 +28,77 @@ body {
   overflow: hidden;
   display: block;
   margin-bottom: 20px;
+  background-color: $textarea-back;
 }
 
 .keyboard {
-  width: 1000px;
+  padding-top: 10px;
+  // align-items: center;
+  width: 810px;
   border-radius: 10px;
   border: $textarea-border 2px solid;
   margin: 0 auto;
   height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-key {
+  user-select: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 500;
+  line-height: 40px;
+  text-align: center;
+  color: #ffffff;
+  border: $text 1.5px solid;
+
+    &:hover {
+      background-color: aqua;
+    }
+
+    &--backspace {
+      width: 100px;
+    }
+
+    &--tab {
+      width: 50px;
+    }
+
+    &--shift {
+      width: 125px;
+    }
+
+    &--arrow-down {
+      transform: rotate(90deg);
+      width: 16px;
+      position: relative;
+      top: 10px;
+      left: -14px;
+    }
+
+    &--arrow-up {
+      transform: rotate(-90deg);
+      width: 16px;
+      position: relative;
+      top: -12px;
+      left: 15px;
+    }
+
+    &--space {
+      width: 360px;
+    }
+
+    &--active {
+      background-color: $text;
+    }
+
+    &--tab::before {
+      content: '    ';
+    }
 }
