@@ -4,10 +4,6 @@ import './style.scss';
 const buttonsEnglishLower = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Del', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'Enter', 'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
 
 const buttonsEnglishUpperShiftOn = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Backspace', 'Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', 'Del', 'CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', 'Enter', 'Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
-// document.onkeydown = function (event) {
-//   buttonsEnglishUpper.push(event.key); //вывод в консоль списка нажатых кнопок, удалить!
-//   console.log(buttonsEnglishUpper);
-// };
 
 const createComponent = function newComponent(tag, classNam) {
   const element = document.createElement(tag, classNam);
@@ -29,20 +25,6 @@ const createButtons = function singleBtns(keyboardArea) {
     if (item === 'Shift') {
       singleBtn.classList.add('single-key--shift');
     }
-    // if (item === 'ArrowLeft') {
-    //   singleBtn.innerText = '<';
-    // }
-    // if (item === 'ArrowRight') {
-    //   singleBtn.innerText = '>';
-    // }
-    // if (item === 'ArrowDown') {
-    //   singleBtn.classList.add('single-key--arrow-down');
-    //   singleBtn.innerText = '>';
-    // }
-    // if (item === 'ArrowUp') {
-    //   singleBtn.classList.add('single-key--arrow-up');
-    //   singleBtn.innerText = '>';
-    // }
     if (item === ' ') {
       singleBtn.classList.add('single-key--space');
       singleBtn.innerText = '';
@@ -177,15 +159,10 @@ const addActiveClassButton = function addClass(event) {
         if (!listButtons.children[29].classList.contains('single-key--active')) {
           listButtons.children[29].classList.add('single-key--active');
           addInnerTextToButtons(buttonsEnglishUpperShiftOn);
-          console.log('отрабатывает1')
         } else if (listButtons.children[29].classList.contains('single-key--active')) {
           listButtons.children[29].classList.remove('single-key--active');
           addInnerTextToButtons(buttonsEnglishLower);
-          console.log('отрабатывает2')
         }
-
-        // listButtons.children[29].classList.add('single-key--active');
-        // addInnerTextToButtons(buttonsEnglishUpperShiftOn);
         break;
       }
       default:
@@ -200,29 +177,9 @@ const addActiveClassButton = function addClass(event) {
   }
 };
 
-// document.onkeydown = function add(event) {
-//   const listButtons = document.querySelector('.keyboard');
-//   if (event.code === 'ShiftLeft') { // ПЕРЕНЕСЕНО В ФУНКЦИЮ addActiveClassButton, УДАЛИТЬ ПОТОМ
-//     listButtons.children[42].classList.add('single-key--active');
-//     addInnerTextToButtons(buttonsEnglishUpperShiftOn);
-//   }
-//   if (event.code === 'ShiftRight') {
-//     listButtons.children[53].classList.add('single-key--active');
-//     addInnerTextToButtons(buttonsEnglishUpperShiftOn);
-//   }
-// };
-
 const removeActiveClassButton = function delActiveClass(event) {
   const listButtons = document.querySelector('.keyboard');
-  // if ((event.code === 'CapsLock') && (listButtons.children[29].classList.contains('single-key--active'))) {
-  //   listButtons.children[29].classList.remove('single-key--active');
-  //   addInnerTextToButtons(buttonsEnglishLower);
-  // }
 
-  // if ((event.code !== 'CapsLock') && (listButtons.children[29].classList.contains('single-key--active'))) {
-  //   listButtons.children[29].classList.add('single-key--active');
-  //   addInnerTextToButtons(buttonsEnglishUpperShiftOn);
-  // }
   if ((event.code === 'ShiftLeft' || event.code === 'ShiftRight') && (listButtons.children[53].classList.contains('single-key--active') || listButtons.children[42].classList.contains('single-key--active'))) {
     listButtons.children[42].classList.remove('single-key--active');
     listButtons.children[53].classList.remove('single-key--active');
@@ -250,32 +207,18 @@ const removeActiveClassButton = function delActiveClass(event) {
       listButtons.children[53].classList.add('single-key--active');
     });
   }
-  // удаление активного класса со всех кнопок с ненажатыми Shifts
-  // if ((!listButtons.children[53].classList.contains('single-key--active')) && (!listButtons.children[42].classList.contains('single-key--active'))) {
-  //   key.forEach((elem) => {
-  //     elem.classList.remove('single-key--active');
-  //   });
-  // }
-  // if ((!listButtons.children[53].classList.contains('single-key--active')) && (!listButtons.children[42].classList.contains('single-key--active'))) {
-  //   key.forEach((elem) => {
-  //     elem.classList.remove('single-key--active'); // рабочий образец
-  //   });
-  // }
+
   if ((!listButtons.children[53].classList.contains('single-key--active')) && (!listButtons.children[42].classList.contains('single-key--active')) && (event.code !== 'CapsLock') && (listButtons.children[29].classList.contains('single-key--active'))) {
     key.forEach((elem) => {
       elem.classList.remove('single-key--active');
       listButtons.children[29].classList.add('single-key--active');
     });
-    // listButtons.children[29].classList.add('single-key--active');
-    // addInnerTextToButtons(buttonsEnglishUpperShiftOn);
   }
+
   if ((!listButtons.children[53].classList.contains('single-key--active')) && (!listButtons.children[42].classList.contains('single-key--active')) && (event.code !== 'CapsLock') && (!listButtons.children[29].classList.contains('single-key--active'))) {
     key.forEach((elem) => {
       elem.classList.remove('single-key--active');
-      // listButtons.children[29].classList.add('single-key--active');
     });
-    // listButtons.children[29].classList.add('single-key--active');
-    // addInnerTextToButtons(buttonsEnglishUpperShiftOn);
   }
 };
 
