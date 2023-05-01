@@ -45,6 +45,9 @@ const createWorkArea = function createWindow() {
   const keyboardArea = createComponent('div', 'keyboard');
   mainDiv.append(keyboardArea);
   createButtons(keyboardArea);
+  const descriptionText = createComponent('p', 'description');
+  descriptionText.innerText = 'The keyboard was created in the Windows OS. Switch language: ShiftLeft + AltLeft';
+  mainDiv.append(descriptionText);
 };
 
 createWorkArea();
@@ -224,5 +227,3 @@ const removeActiveClassButton = function delActiveClass(event) {
 
 document.addEventListener('keydown', addActiveClassButton);
 document.addEventListener('keyup', removeActiveClassButton);
-
-alert('Работа не готова, прошу проверить через пару дней:) Спасибо за понимание:)');
