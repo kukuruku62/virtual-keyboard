@@ -96,7 +96,7 @@ const key = document.querySelectorAll('.single-key');
 const addActiveClassButton = function addClass(event) {
   const listButtons = document.querySelector('.keyboard');
 
-  if (event.code === 'ShiftRight' || event.code === 'ShiftLeft' || event.code === 'ControlLeft' || event.code === 'ControlRight' || event.code === 'AltRight' || event.code === 'AltLeft' || event.code === 'Space' || event.code === 'Delete' || event.code === 'ArrowLeft' || event.code === 'ArrowRight' || event.code === 'ArrowUp' || event.code === 'ArrowDown' || event.code === 'ArrowUp' || event.code === 'MetaLeft' || event.code === 'Tab') {
+  if (event.code === 'ShiftRight' || event.code === 'ShiftLeft' || event.code === 'ControlLeft' || event.code === 'ControlRight' || event.code === 'AltRight' || event.code === 'AltLeft' || event.code === 'Space' || event.code === 'Delete' || event.code === 'ArrowLeft' || event.code === 'ArrowRight' || event.code === 'ArrowUp' || event.code === 'ArrowDown' || event.code === 'ArrowUp' || event.code === 'MetaLeft' || event.code === 'Tab' || event.code === 'CapsLock') {
     switch (event.code) {
       case 'ShiftLeft': {
         listButtons.children[42].classList.add('single-key--active');
@@ -173,6 +173,21 @@ const addActiveClassButton = function addClass(event) {
         }());
         break;
       }
+      case 'CapsLock': {
+        if (!listButtons.children[29].classList.contains('single-key--active')) {
+          listButtons.children[29].classList.add('single-key--active');
+          addInnerTextToButtons(buttonsEnglishUpperShiftOn);
+          console.log('отрабатывает1')
+        } else if (listButtons.children[29].classList.contains('single-key--active')) {
+          listButtons.children[29].classList.remove('single-key--active');
+          addInnerTextToButtons(buttonsEnglishLower);
+          console.log('отрабатывает2')
+        }
+
+        // listButtons.children[29].classList.add('single-key--active');
+        // addInnerTextToButtons(buttonsEnglishUpperShiftOn);
+        break;
+      }
       default:
         break;
     }
@@ -199,6 +214,15 @@ const addActiveClassButton = function addClass(event) {
 
 const removeActiveClassButton = function delActiveClass(event) {
   const listButtons = document.querySelector('.keyboard');
+  // if ((event.code === 'CapsLock') && (listButtons.children[29].classList.contains('single-key--active'))) {
+  //   listButtons.children[29].classList.remove('single-key--active');
+  //   addInnerTextToButtons(buttonsEnglishLower);
+  // }
+
+  // if ((event.code !== 'CapsLock') && (listButtons.children[29].classList.contains('single-key--active'))) {
+  //   listButtons.children[29].classList.add('single-key--active');
+  //   addInnerTextToButtons(buttonsEnglishUpperShiftOn);
+  // }
   if ((event.code === 'ShiftLeft' || event.code === 'ShiftRight') && (listButtons.children[53].classList.contains('single-key--active') || listButtons.children[42].classList.contains('single-key--active'))) {
     listButtons.children[42].classList.remove('single-key--active');
     listButtons.children[53].classList.remove('single-key--active');
@@ -226,11 +250,32 @@ const removeActiveClassButton = function delActiveClass(event) {
       listButtons.children[53].classList.add('single-key--active');
     });
   }
-
-  if ((!listButtons.children[53].classList.contains('single-key--active')) && (!listButtons.children[42].classList.contains('single-key--active'))) {
+  // удаление активного класса со всех кнопок с ненажатыми Shifts
+  // if ((!listButtons.children[53].classList.contains('single-key--active')) && (!listButtons.children[42].classList.contains('single-key--active'))) {
+  //   key.forEach((elem) => {
+  //     elem.classList.remove('single-key--active');
+  //   });
+  // }
+  // if ((!listButtons.children[53].classList.contains('single-key--active')) && (!listButtons.children[42].classList.contains('single-key--active'))) {
+  //   key.forEach((elem) => {
+  //     elem.classList.remove('single-key--active'); // рабочий образец
+  //   });
+  // }
+  if ((!listButtons.children[53].classList.contains('single-key--active')) && (!listButtons.children[42].classList.contains('single-key--active')) && (event.code !== 'CapsLock') && (listButtons.children[29].classList.contains('single-key--active'))) {
     key.forEach((elem) => {
       elem.classList.remove('single-key--active');
+      listButtons.children[29].classList.add('single-key--active');
     });
+    // listButtons.children[29].classList.add('single-key--active');
+    // addInnerTextToButtons(buttonsEnglishUpperShiftOn);
+  }
+  if ((!listButtons.children[53].classList.contains('single-key--active')) && (!listButtons.children[42].classList.contains('single-key--active')) && (event.code !== 'CapsLock') && (!listButtons.children[29].classList.contains('single-key--active'))) {
+    key.forEach((elem) => {
+      elem.classList.remove('single-key--active');
+      // listButtons.children[29].classList.add('single-key--active');
+    });
+    // listButtons.children[29].classList.add('single-key--active');
+    // addInnerTextToButtons(buttonsEnglishUpperShiftOn);
   }
 };
 
