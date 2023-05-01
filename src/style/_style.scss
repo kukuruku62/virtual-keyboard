@@ -98,7 +98,7 @@ body {
       background-color: $text;
     }
 
-    &--tab::before {
-      content: '    ';
+    &--active-shift {
+      background-color: $text;
     }
 }

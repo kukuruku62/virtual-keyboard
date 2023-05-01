@@ -3,49 +3,55 @@ import './style.scss';
 
 const buttonsEnglishLower = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Del', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'Enter', 'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
 
-function createComponent(tag, classNam) {
+const buttonsEnglishUpperShiftOn = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Backspace', 'Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', 'Del', 'CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', 'Enter', 'Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
+// document.onkeydown = function (event) {
+//   buttonsEnglishUpper.push(event.key); //вывод в консоль списка нажатых кнопок, удалить!
+//   console.log(buttonsEnglishUpper);
+// };
+
+const createComponent = function newComponent(tag, classNam) {
   const element = document.createElement(tag, classNam);
   element.classList.add(classNam);
   return element;
-}
-// назначение кнопкам доп классов, если их размеры нестадартные
-function createKeyboard(keyboardArea) {
+};
+
+// функция отрисовки кнопок и символов в них
+const createButtons = function singleBtns(keyboardArea) {
   buttonsEnglishLower.forEach((item) => {
-    const addBtn = createComponent('div', 'single-key');
-    addBtn.innerText = item;
+    const singleBtn = createComponent('div', 'single-key');
+    // singleBtn.innerText = item; // присваевает кнопке название/innerText из массива
     if (item === 'Tab') {
-      addBtn.classList.add('single-key--tab');
+      singleBtn.classList.add('single-key--tab');
     }
     if (item === 'CapsLock' || item === 'Enter' || item === 'Backspace') {
-      addBtn.classList.add('single-key--backspace');
+      singleBtn.classList.add('single-key--backspace');
     }
     if (item === 'Shift') {
-      addBtn.classList.add('single-key--shift');
+      singleBtn.classList.add('single-key--shift');
     }
-    if (item === 'ArrowLeft') {
-      addBtn.innerText = '<';
-    }
-    if (item === 'ArrowRight') {
-      addBtn.innerText = '>';
-    }
-    if (item === 'ArrowDown') {
-      addBtn.classList.add('single-key--arrow-down');
-      addBtn.innerText = '>';
-    }
-    if (item === 'ArrowUp') {
-      addBtn.classList.add('single-key--arrow-up');
-      addBtn.innerText = '>';
-    }
+    // if (item === 'ArrowLeft') {
+    //   singleBtn.innerText = '<';
+    // }
+    // if (item === 'ArrowRight') {
+    //   singleBtn.innerText = '>';
+    // }
+    // if (item === 'ArrowDown') {
+    //   singleBtn.classList.add('single-key--arrow-down');
+    //   singleBtn.innerText = '>';
+    // }
+    // if (item === 'ArrowUp') {
+    //   singleBtn.classList.add('single-key--arrow-up');
+    //   singleBtn.innerText = '>';
+    // }
     if (item === ' ') {
-      addBtn.classList.add('single-key--space');
-      addBtn.innerText = '';
+      singleBtn.classList.add('single-key--space');
+      singleBtn.innerText = '';
     }
-    keyboardArea.append(addBtn);
+    keyboardArea.append(singleBtn);
   });
-  // return keyboardArea;
-}
+};
 
-function createWindow() {
+const createWorkArea = function createWindow() {
   const mainDiv = createComponent('div', 'main-div');
   document.body.append(mainDiv);
   const title = createComponent('h1', 'title');
@@ -56,27 +62,67 @@ function createWindow() {
   textArea.focus(); // устанавливает автофокус в textearea
   const keyboardArea = createComponent('div', 'keyboard');
   mainDiv.append(keyboardArea);
-  createKeyboard(keyboardArea);
-}
+  createButtons(keyboardArea);
+};
 
-createWindow();
+createWorkArea();
+
+const addInnerTextToButtons = function addText(arrSymbols) {
+  const arrayButtons = document.querySelectorAll('.single-key');
+  arrayButtons.forEach((button, index) => {
+    const eachBtn = button;
+    eachBtn.innerText = arrSymbols[index];
+    if (index === 60) {
+      eachBtn.innerText = '<';
+    }
+    if (index === 63) {
+      eachBtn.innerText = '>';
+    }
+    if (index === 62) {
+      eachBtn.classList.add('single-key--arrow-down');
+      eachBtn.innerText = '>';
+    }
+    if (index === 61) {
+      eachBtn.classList.add('single-key--arrow-up');
+      eachBtn.innerText = '>';
+    }
+  });
+};
+
+addInnerTextToButtons(buttonsEnglishLower);
 
 const key = document.querySelectorAll('.single-key');
-// const listButtons = document.querySelector('.keyboard');
-// const new = listButtons.querySelectorAll()
 
-document.onkeydown = function addActiveClass(event) {
+// function checkPressShift(event) {
+//   // if (event.keyShift) {
+//     addInnerTextToButtons(buttonsEnglishUpperShiftOn)
+//   // }
+// }
+
+// window.addEventListener('keydown', checkPressShift);
+
+const addActiveClassButton = function addClass(event) {
   // console.log(event.code)
   // console.log(event.key)
+  // console.log(event)
   const listButtons = document.querySelector('.keyboard');
+
+  if (event.shiftKey) {
+    addInnerTextToButtons(buttonsEnglishUpperShiftOn);
+  }
   if (event.code === 'ShiftRight' || event.code === 'ShiftLeft' || event.code === 'ControlLeft' || event.code === 'ControlRight' || event.code === 'AltRight' || event.code === 'AltLeft' || event.code === 'Space' || event.code === 'Delete' || event.code === 'ArrowLeft' || event.code === 'ArrowRight' || event.code === 'ArrowUp' || event.code === 'ArrowDown' || event.code === 'ArrowUp' || event.code === 'MetaLeft' || event.code === 'Tab') {
     switch (event.code) {
       case 'ShiftLeft': {
         listButtons.children[42].classList.add('single-key--active');
+        // addInnerTextToButtons(buttonsEnglishUpperShiftOn);
+        // if (event.repeat || event.shiftKey) {
+        //   addInnerTextToButtons(buttonsEnglishUpperShiftOn);
+        // }
         break;
       }
       case 'ShiftRight': {
         listButtons.children[53].classList.add('single-key--active');
+        // addInnerTextToButtons(buttonsEnglishUpperShiftOn);
         break;
       }
       case 'ControlLeft': {
@@ -139,7 +185,7 @@ document.onkeydown = function addActiveClass(event) {
           if (event.code === 'Tab') {
             event.preventDefault();
             const textArea = document.querySelector('textarea');
-            textArea.setRangeText('    ', textArea.selectionStart, textArea.selectionEnd, 'end');
+            textArea.setRangeText('   ', textArea.selectionStart, textArea.selectionEnd, 'end');
           }
         }());
         break;
@@ -156,8 +202,44 @@ document.onkeydown = function addActiveClass(event) {
   }
 };
 
-document.onkeyup = function removeActiveClass() {
-  key.forEach((el) => {
+const removeActiveClassButton = function removeClass(event) {
+  const listButtons = document.querySelector('.keyboard');
+  addInnerTextToButtons(buttonsEnglishLower)
+  key.forEach((el, index) => {
+    // console.log(index)
+    // console.log(el)
+
     el.classList.remove('single-key--active');
+    // if (event.code === '')
+    if (event.shiftKey) {
+      listButtons.children[42].classList.add('single-key--active');
+      addInnerTextToButtons(buttonsEnglishUpperShiftOn);
+    }
+    // addInnerTextToButtons(buttonsEnglishLower);
   });
 };
+
+document.addEventListener('keydown', addActiveClassButton);
+document.addEventListener('keyup', removeActiveClassButton);
+// // const keyb = document.querySelector('keyboard');
+// // keyb.addEventListener('click', function (ee) {
+// //   console.log(ee.innerText);
+// // });
+
+// // document.onkeydown = function (e) {
+// //   if (e.shiftKey) {
+// //     console.log('dfgdgdf')
+// //   }
+// // };
+// // document.onclick = function (event) {
+// //   console.log(event.code);
+// //   console.log(event);
+// // }
+
+// document.onkeydown = function (event) {
+//   console.log(event.code);
+//   console.log(event.key);
+//   console.log(event);
+//   console.log(event.shiftKey);
+//   console.log(event.repeat);
+// };
