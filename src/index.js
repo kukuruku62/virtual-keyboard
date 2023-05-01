@@ -225,4 +225,4 @@ const removeActiveClassButton = function delActiveClass(event) {
 document.addEventListener('keydown', addActiveClassButton);
 document.addEventListener('keyup', removeActiveClassButton);
 
-alert('Работа не готова, прошу проверить через пару дней:) Спасибо за понимание:)')
+alert('Работа не готова, прошу проверить через пару дней:) Спасибо за понимание:)');
