@@ -89,6 +89,10 @@ body {
       left: -14px;
     }
 
+    &--arrow-left {
+      transform: rotate(180deg);
+    }
+
     &--arrow-up {
       transform: rotate(-90deg);
       width: 16px;

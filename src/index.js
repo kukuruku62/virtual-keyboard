@@ -58,18 +58,19 @@ const addInnerTextToButtons = function addText(arrSymbols) {
     const eachBtn = button;
     eachBtn.innerText = arrSymbols[index];
     if (index === 60) {
-      eachBtn.innerText = '<';
+      eachBtn.classList.add('single-key--arrow-left');
+      eachBtn.innerText = '❯';
     }
     if (index === 63) {
-      eachBtn.innerText = '>';
+      eachBtn.innerText = '❯';
     }
     if (index === 62) {
       eachBtn.classList.add('single-key--arrow-down');
-      eachBtn.innerText = '>';
+      eachBtn.innerText = '❯';
     }
     if (index === 61) {
       eachBtn.classList.add('single-key--arrow-up');
-      eachBtn.innerText = '>';
+      eachBtn.innerText = '❯';
     }
   });
 };
