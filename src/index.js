@@ -93,36 +93,19 @@ addInnerTextToButtons(buttonsEnglishLower);
 
 const key = document.querySelectorAll('.single-key');
 
-// function checkPressShift(event) {
-//   // if (event.keyShift) {
-//     addInnerTextToButtons(buttonsEnglishUpperShiftOn)
-//   // }
-// }
-
-// window.addEventListener('keydown', checkPressShift);
-
 const addActiveClassButton = function addClass(event) {
-  // console.log(event.code)
-  // console.log(event.key)
-  // console.log(event)
   const listButtons = document.querySelector('.keyboard');
 
-  if (event.shiftKey) {
-    addInnerTextToButtons(buttonsEnglishUpperShiftOn);
-  }
   if (event.code === 'ShiftRight' || event.code === 'ShiftLeft' || event.code === 'ControlLeft' || event.code === 'ControlRight' || event.code === 'AltRight' || event.code === 'AltLeft' || event.code === 'Space' || event.code === 'Delete' || event.code === 'ArrowLeft' || event.code === 'ArrowRight' || event.code === 'ArrowUp' || event.code === 'ArrowDown' || event.code === 'ArrowUp' || event.code === 'MetaLeft' || event.code === 'Tab') {
     switch (event.code) {
       case 'ShiftLeft': {
         listButtons.children[42].classList.add('single-key--active');
-        // addInnerTextToButtons(buttonsEnglishUpperShiftOn);
-        // if (event.repeat || event.shiftKey) {
-        //   addInnerTextToButtons(buttonsEnglishUpperShiftOn);
-        // }
+        addInnerTextToButtons(buttonsEnglishUpperShiftOn);
         break;
       }
       case 'ShiftRight': {
         listButtons.children[53].classList.add('single-key--active');
-        // addInnerTextToButtons(buttonsEnglishUpperShiftOn);
+        addInnerTextToButtons(buttonsEnglishUpperShiftOn);
         break;
       }
       case 'ControlLeft': {
@@ -202,44 +185,54 @@ const addActiveClassButton = function addClass(event) {
   }
 };
 
-const removeActiveClassButton = function removeClass(event) {
-  const listButtons = document.querySelector('.keyboard');
-  addInnerTextToButtons(buttonsEnglishLower)
-  key.forEach((el, index) => {
-    // console.log(index)
-    // console.log(el)
+// document.onkeydown = function add(event) {
+//   const listButtons = document.querySelector('.keyboard');
+//   if (event.code === 'ShiftLeft') { // ПЕРЕНЕСЕНО В ФУНКЦИЮ addActiveClassButton, УДАЛИТЬ ПОТОМ
+//     listButtons.children[42].classList.add('single-key--active');
+//     addInnerTextToButtons(buttonsEnglishUpperShiftOn);
+//   }
+//   if (event.code === 'ShiftRight') {
+//     listButtons.children[53].classList.add('single-key--active');
+//     addInnerTextToButtons(buttonsEnglishUpperShiftOn);
+//   }
+// };
 
-    el.classList.remove('single-key--active');
-    // if (event.code === '')
-    if (event.shiftKey) {
+const removeActiveClassButton = function delActiveClass(event) {
+  const listButtons = document.querySelector('.keyboard');
+  if ((event.code === 'ShiftLeft' || event.code === 'ShiftRight') && (listButtons.children[53].classList.contains('single-key--active') || listButtons.children[42].classList.contains('single-key--active'))) {
+    listButtons.children[42].classList.remove('single-key--active');
+    listButtons.children[53].classList.remove('single-key--active');
+  }
+  if (event.code === 'ShiftLeft') {
+    listButtons.children[42].classList.remove('single-key--active');
+    addInnerTextToButtons(buttonsEnglishLower);
+  }
+
+  if (event.code === 'ShiftRight') {
+    listButtons.children[53].classList.remove('single-key--active');
+    addInnerTextToButtons(buttonsEnglishLower);
+  }
+
+  if ((event.code !== 'ShiftLeft') && listButtons.children[42].classList.contains('single-key--active')) {
+    key.forEach((element) => {
+      element.classList.remove('single-key--active');
       listButtons.children[42].classList.add('single-key--active');
-      addInnerTextToButtons(buttonsEnglishUpperShiftOn);
-    }
-    // addInnerTextToButtons(buttonsEnglishLower);
-  });
+    });
+  }
+
+  if ((event.code !== 'ShiftRight') && listButtons.children[53].classList.contains('single-key--active')) {
+    key.forEach((element) => {
+      element.classList.remove('single-key--active');
+      listButtons.children[53].classList.add('single-key--active');
+    });
+  }
+
+  if ((!listButtons.children[53].classList.contains('single-key--active')) && (!listButtons.children[42].classList.contains('single-key--active'))) {
+    key.forEach((elem) => {
+      elem.classList.remove('single-key--active');
+    });
+  }
 };
 
 document.addEventListener('keydown', addActiveClassButton);
 document.addEventListener('keyup', removeActiveClassButton);
-// // const keyb = document.querySelector('keyboard');
-// // keyb.addEventListener('click', function (ee) {
-// //   console.log(ee.innerText);
-// // });
-
-// // document.onkeydown = function (e) {
-// //   if (e.shiftKey) {
-// //     console.log('dfgdgdf')
-// //   }
-// // };
-// // document.onclick = function (event) {
-// //   console.log(event.code);
-// //   console.log(event);
-// // }
-
-// document.onkeydown = function (event) {
-//   console.log(event.code);
-//   console.log(event.key);
-//   console.log(event);
-//   console.log(event.shiftKey);
-//   console.log(event.repeat);
-// };
