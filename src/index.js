@@ -5,16 +5,11 @@ import './style.scss';
 
 // const buttonsEnglishUpperShiftOn = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Backspace', 'Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', 'Del', 'CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', 'Enter', 'Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
 
-const buttonsEnglishLower = [';', '+', 'ľ', 'š', 'č', 'ť', 'ž', 'ý', 'á', 'í', 'é', '=', '-', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'z', 'u', 'i', 'o', 'p', 'ú', 'ä', 'ň', 'Del', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ô', '§', 'Enter', 'Shift', 'y', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '-', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
+const buttonsEnglishLower = [';', '~', 'ľ', 'š', 'č', 'ť', 'ž', 'ý', 'á', 'í', 'é', '=', '-', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'z', 'u', 'i', 'o', 'p', 'ú', 'ä', 'ň', 'Del', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ô', '§', 'Enter', 'Shift', 'y', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '-', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
 
-const buttonsEnglishUpperShiftOn = [';', '+', 'ľ', 'š', 'č', 'ť', 'ž', 'ý', 'á', 'í', 'é', '=', '+', 'Backspace', 'Tab', 'Q', 'W', 'E', 'R', 'T', 'Z', 'U', 'I', 'O', 'P', 'ú', 'ä', 'ň', 'Del', 'CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'ô', '§', 'Enter', 'Shift', 'Y', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '-', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
+const buttonsEnglishUpperShiftOn = ['°', '+', 'ľ', 'š', 'č', 'ť', 'ž', 'ý', 'á', 'í', 'é', '=', '+', 'Backspace', 'Tab', 'Q', 'W', 'E', 'R', 'T', 'Z', 'U', 'I', 'O', 'P', 'ú', 'ä', 'ň', 'Del', 'CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'ô', '§', 'Enter', 'Shift', 'Y', 'X', 'C', 'V', 'B', 'N', 'M', '?', '_', '+', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
 
 const eventCodes = ['Backquote', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9', 'Digit0', 'Minus', 'Equal', 'Backspace', 'Tab', 'KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight', 'Backslash', 'Delete', 'CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Enter', 'ShiftLeft', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash', 'ShiftRight', 'ControlLeft', 'MetaLeft', 'AltLeft', 'Space', 'AltRight', 'ControlRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
-// const newArr = [];
-// document.onkeydown = function (event) {
-//   newArr.push(event.code); // вывод в консоль списка нажатых кнопок, удалить!
-//   console.log(newArr);
-// };
 
 const createComponent = function newComponent(tag, classNam) {
   const element = document.createElement(tag, classNam);
@@ -97,12 +92,12 @@ addInnerTextToButtons(buttonsEnglishLower);
   });
 }());
 
-const key = document.querySelectorAll('.single-key');
-
 const addActiveClassButton = function addClass(event) {
   const listButtons = document.querySelector('.keyboard');
+  const textarea = document.querySelector('textarea');
+  textarea.focus();
 
-  if (event.code === 'ShiftRight' || event.code === 'ShiftLeft' || event.code === 'ControlLeft' || event.code === 'ControlRight' || event.code === 'AltRight' || event.code === 'AltLeft' || event.code === 'Space' || event.code === 'Delete' || event.code === 'ArrowLeft' || event.code === 'ArrowRight' || event.code === 'ArrowUp' || event.code === 'ArrowDown' || event.code === 'ArrowUp' || event.code === 'MetaLeft' || event.code === 'Tab' || event.code === 'CapsLock') {
+  if (event.code === 'ShiftRight' || event.code === 'ShiftLeft' || event.code === 'ControlLeft' || event.code === 'ControlRight' || event.code === 'AltRight' || event.code === 'AltLeft' || event.code === 'Space' || event.code === 'Delete' || event.code === 'ArrowLeft' || event.code === 'ArrowRight' || event.code === 'ArrowUp' || event.code === 'ArrowDown' || event.code === 'ArrowUp' || event.code === 'MetaLeft' || event.code === 'Tab' || event.code === 'CapsLock' || event.code === 'Enter' || event.code === 'Backspace') {
     switch (event.code) {
       case 'ShiftLeft': {
         listButtons.children[42].classList.add('single-key--active');
@@ -148,6 +143,14 @@ const addActiveClassButton = function addClass(event) {
         listButtons.children[28].classList.add('single-key--active');
         break;
       }
+      case 'Enter': {
+        listButtons.children[41].classList.add('single-key--active');
+        break;
+      }
+      case 'Backspace': {
+        listButtons.children[13].classList.add('single-key--active');
+        break;
+      }
       case 'ArrowLeft': {
         listButtons.children[60].classList.add('single-key--active');
         break;
@@ -173,8 +176,7 @@ const addActiveClassButton = function addClass(event) {
         (function checkTab() { // самовыз-я ф-я, отменяет деф-ое зн-е Tab, вместо этого делает отс-ы
           if (event.code === 'Tab') {
             event.preventDefault();
-            const textArea = document.querySelector('textarea');
-            textArea.setRangeText('   ', textArea.selectionStart, textArea.selectionEnd, 'end');
+            textarea.setRangeText('   ', textarea.selectionStart, textarea.selectionEnd, 'end');
           }
         }());
         break;
@@ -193,18 +195,16 @@ const addActiveClassButton = function addClass(event) {
         break;
     }
   } else {
-    const textarea = document.querySelector('textarea');
-    // textarea.setRangeText('   ', textArea.selectionStart, textArea.selectionEnd, 'end');
-    // key.forEach((item, index) => {
-    //   if (item.innerText === event.key) { // рабочий вариант
-    //     key[index].classList.add('single-key--active');
-    //   }
-    // });
+    event.preventDefault();
+    const key = document.querySelector(`.single-key[data-key="${event.code}"]`);
+    textarea.setRangeText(key.innerText, textarea.selectionStart, textarea.selectionEnd, 'end');
+    key.classList.add('single-key--active');
   }
 };
 
 const removeActiveClassButton = function delActiveClass(event) {
   const listButtons = document.querySelector('.keyboard');
+  const key = document.querySelectorAll('.single-key');
 
   if ((event.code === 'ShiftLeft' || event.code === 'ShiftRight') && (listButtons.children[53].classList.contains('single-key--active') || listButtons.children[42].classList.contains('single-key--active'))) {
     listButtons.children[42].classList.remove('single-key--active');
