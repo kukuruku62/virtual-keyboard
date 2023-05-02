@@ -1,15 +1,20 @@
 import './index.html';
 import './style.scss';
 
-// const buttonsEnglishLower = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Del', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'Enter', 'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
+const innerTextBtnsEngLower = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Del', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'Enter', 'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
 
-// const buttonsEnglishUpperShiftOn = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Backspace', 'Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', 'Del', 'CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', 'Enter', 'Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
+const innerTextBtnsEngUpper = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Backspace', 'Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', 'Del', 'CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', 'Enter', 'Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
 
-const buttonsEnglishLower = [';', '~', 'ľ', 'š', 'č', 'ť', 'ž', 'ý', 'á', 'í', 'é', '=', '-', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'z', 'u', 'i', 'o', 'p', 'ú', 'ä', 'ň', 'Del', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ô', '§', 'Enter', 'Shift', 'y', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '-', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
+const innerTextBtnsSlovakLower = [';', '~', 'ľ', 'š', 'č', 'ť', 'ž', 'ý', 'á', 'í', 'é', '=', '-', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'z', 'u', 'i', 'o', 'p', 'ú', 'ä', 'ň', 'Del', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ô', '§', 'Enter', 'Shift', 'y', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '-', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
 
-const buttonsEnglishUpperShiftOn = ['°', '+', 'Ľ', 'Š', 'Č', 'Ť', 'Ž', 'Ý', 'Á', 'Í', 'É', '=', '+', 'Backspace', 'Tab', 'Q', 'W', 'E', 'R', 'T', 'Z', 'U', 'I', 'O', 'P', 'Ú', 'Ä', 'Ň', 'Del', 'CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Ô', '!', 'Enter', 'Shift', 'Y', 'X', 'C', 'V', 'B', 'N', 'M', '?', '_', '+', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
+const innerTextBtnsSlovakUpper = ['°', '+', 'Ľ', 'Š', 'Č', 'Ť', 'Ž', 'Ý', 'Á', 'Í', 'É', '=', '+', 'Backspace', 'Tab', 'Q', 'W', 'E', 'R', 'T', 'Z', 'U', 'I', 'O', 'P', 'Ú', 'Ä', 'Ň', 'Del', 'CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Ô', '!', 'Enter', 'Shift', 'Y', 'X', 'C', 'V', 'B', 'N', 'M', '?', '_', '+', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
 
 const eventCodes = ['Backquote', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9', 'Digit0', 'Minus', 'Equal', 'Backspace', 'Tab', 'KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight', 'Backslash', 'Delete', 'CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Enter', 'ShiftLeft', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash', 'ShiftRight', 'ControlLeft', 'MetaLeft', 'AltLeft', 'Space', 'AltRight', 'ControlRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
+
+let upperLetters = innerTextBtnsEngLower;
+let lowerLetters = innerTextBtnsEngUpper;
+const upperLettersSlovak = innerTextBtnsSlovakLower;
+const lowerLettersSlovak = innerTextBtnsSlovakUpper;
 
 const createComponent = function newComponent(tag, classNam) {
   const element = document.createElement(tag, classNam);
@@ -19,7 +24,7 @@ const createComponent = function newComponent(tag, classNam) {
 
 // create buttons different sizes WITHOUT innerText
 const createButtons = function singleBtns(keyboardArea) {
-  buttonsEnglishLower.forEach((item) => {
+  innerTextBtnsEngLower.forEach((item) => {
     const singleBtn = createComponent('div', 'single-key');
     if (item === 'Tab') {
       singleBtn.classList.add('single-key--tab');
@@ -81,7 +86,7 @@ const addInnerTextToButtons = function addText(arrSymbols) {
   });
 };
 
-addInnerTextToButtons(buttonsEnglishLower);
+addInnerTextToButtons(innerTextBtnsEngLower);
 
 // set data-attribute each button
 (function addDataAttributeToBtns() {
@@ -92,21 +97,32 @@ addInnerTextToButtons(buttonsEnglishLower);
   });
 }());
 
+let counterChangeLanguage = 0;
+
 const addActiveClassButton = function addClass(event) {
   const listButtons = document.querySelector('.keyboard');
   const textarea = document.querySelector('textarea');
   textarea.focus();
 
+  // change language block
+  if (event.shiftKey && (event.altKey && counterChangeLanguage === 0)) {
+    [lowerLetters, upperLetters] = [upperLettersSlovak, lowerLettersSlovak];
+    counterChangeLanguage += 1;
+  } else if (event.shiftKey && (event.altKey && counterChangeLanguage === 1)) {
+    [lowerLetters, upperLetters] = [innerTextBtnsEngUpper, innerTextBtnsEngLower];
+    counterChangeLanguage = 0;
+  }
+
   if (event.code === 'ShiftRight' || event.code === 'ShiftLeft' || event.code === 'ControlLeft' || event.code === 'ControlRight' || event.code === 'AltRight' || event.code === 'AltLeft' || event.code === 'Space' || event.code === 'Delete' || event.code === 'ArrowLeft' || event.code === 'ArrowRight' || event.code === 'ArrowUp' || event.code === 'ArrowDown' || event.code === 'ArrowUp' || event.code === 'MetaLeft' || event.code === 'Tab' || event.code === 'CapsLock' || event.code === 'Enter' || event.code === 'Backspace') {
     switch (event.code) {
       case 'ShiftLeft': {
         listButtons.children[42].classList.add('single-key--active');
-        addInnerTextToButtons(buttonsEnglishUpperShiftOn);
+        addInnerTextToButtons(upperLetters);
         break;
       }
       case 'ShiftRight': {
         listButtons.children[53].classList.add('single-key--active');
-        addInnerTextToButtons(buttonsEnglishUpperShiftOn);
+        addInnerTextToButtons(upperLetters);
         break;
       }
       case 'ControlLeft': {
@@ -173,7 +189,7 @@ const addActiveClassButton = function addClass(event) {
       }
       case 'Tab': {
         listButtons.children[14].classList.add('single-key--active');
-        (function checkTab() { // самовыз-я ф-я, отменяет деф-ое зн-е Tab, вместо этого делает отс-ы
+        (function checkTab() {
           if (event.code === 'Tab') {
             event.preventDefault();
             textarea.setRangeText('   ', textarea.selectionStart, textarea.selectionEnd, 'end');
@@ -184,10 +200,10 @@ const addActiveClassButton = function addClass(event) {
       case 'CapsLock': {
         if (!listButtons.children[29].classList.contains('single-key--active')) {
           listButtons.children[29].classList.add('single-key--active');
-          addInnerTextToButtons(buttonsEnglishUpperShiftOn);
+          addInnerTextToButtons(lowerLetters);
         } else if (listButtons.children[29].classList.contains('single-key--active')) {
           listButtons.children[29].classList.remove('single-key--active');
-          addInnerTextToButtons(buttonsEnglishLower);
+          addInnerTextToButtons(upperLetters);
         }
         break;
       }
@@ -212,12 +228,12 @@ const removeActiveClassButton = function delActiveClass(event) {
   }
   if (event.code === 'ShiftLeft') {
     listButtons.children[42].classList.remove('single-key--active');
-    addInnerTextToButtons(buttonsEnglishLower);
+    addInnerTextToButtons(lowerLetters);
   }
 
   if (event.code === 'ShiftRight') {
     listButtons.children[53].classList.remove('single-key--active');
-    addInnerTextToButtons(buttonsEnglishLower);
+    addInnerTextToButtons(lowerLetters);
   }
 
   if ((event.code !== 'ShiftLeft') && listButtons.children[42].classList.contains('single-key--active')) {

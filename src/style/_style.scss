@@ -107,6 +107,7 @@ body {
 
     &--active {
       background-color: $text;
+      border-radius: 10px;
     }
 
     &--active-shift {
