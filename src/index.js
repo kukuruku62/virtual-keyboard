@@ -333,8 +333,7 @@ buttons.forEach((btn) => {
     textarea.focus();
     if (eventUp.target.innerText === 'CapsLock' && counterCapsLockSwitch === 1) {
       eventUp.target.classList.add('single-key--active');
-      // addInnerTextToButtons(upperLetters);
-    } else if (isShift === false) {
+    } else if (isShift === false && !listButtons.children[29].classList.contains('single-key--active')) {
       addInnerTextToButtons(lowerLetters);
       eventUp.target.classList.remove('single-key--active');
     } else if (isShift === true) {
@@ -342,7 +341,6 @@ buttons.forEach((btn) => {
       eventUp.target.classList.remove('single-key--active');
     } else {
       btn.classList.remove('single-key--active');
-      // addInnerTextToButtons(lowerLetters);
     }
   });
 });
