@@ -324,6 +324,8 @@ buttons.forEach((btn) => {
       }
     } else if (eventDown.target.innerText === 'Enter') {
       textarea.setRangeText('\n', textarea.selectionStart, textarea.selectionEnd, 'end');
+    } else if (eventDown.target.innerText === 'Del' && textarea.value.length > 0) {
+      textarea.setRangeText('', textarea.selectionStart, textarea.selectionEnd + 1, 'end');
     } else if (eventDown.target.classList.contains('single-key')) {
       eventDown.target.classList.add('single-key--active');
     }
