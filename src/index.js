@@ -280,53 +280,69 @@ document.addEventListener('keydown', addActiveClassButton);
 document.addEventListener('keyup', removeActiveClassButton);
 
 // mouse action
-// const clickMouse = function clickMouseOnBtns(event) {
-//   const textarea = document.querySelector('textarea');
-//   const listButtons = document.querySelector('.keyboard');
-//   textarea.focus();
-//   // set and remove active class for btns inside operation 'click'
-//   (function actActive() {
-//     document.addEventListener('mousedown', (ev) => {
-//       ev.target.classList.add('single-key--active');
-//       console.log(ev.target)
-//     });
-//     document.addEventListener('mouseup', (ev) => {
-//       ev.target.classList.remove('single-key--active');
-//     });
-//   }());
-//   if (event.target.innerText.length === 1 && event.target.innerText !== '❯') {
-//     textarea.setRangeText(event.target.innerText, textarea.selectionEnd, textarea.selectionStart, 'end');
-//     // event.target.classList.add('single-key--active')
-//   } else if (event.target.innerText === 'Tab') {
-//     textarea.setRangeText('   ', textarea.selectionStart, textarea.selectionEnd, 'end');
-//   } else if (event.target.classList.contains('single-key--space')) {
-//     textarea.setRangeText(' ', textarea.selectionStart, textarea.selectionEnd, 'end');
-//   } else if (event.target.innerText === 'Backspace' && textarea.value.length > 0) {
-//     textarea.setRangeText('', textarea.selectionStart - 1, textarea.selectionEnd, 'end');
-//   } else if (event.target.classList.contains('single-key--arrow-right')) {
-//     textarea.setRangeText('', textarea.selectionStart + 1, textarea.selectionEnd + 1, 'end');
-//   } else if (event.target.classList.contains('single-key--arrow-left')) {
-//     textarea.setRangeText('', textarea.selectionStart - 1, textarea.selectionEnd - 1, 'end');
-//   } else if (event.target.classList.contains('single-key--arrow-down')) {
-//     textarea.setRangeText('', 0, 0, 'end');
-//   } else if (event.target.className.includes('single-key--arrow-up')) {
-//     textarea.setRangeText('', textarea.value.length, textarea.value.length, 'end');
-//   } else if (event.target.classList.contains('single-key--shift')) {
-//     addInnerTextToButtons(upperLetters);
-//   } else if (event.target.innerText === 'CapsLock') {
-//     if (!listButtons.children[29].classList.contains('single-key--active')) {
-//       listButtons.children[29].classList.add('single-key--active');
-//       addInnerTextToButtons(upperLetters);
-//     } else if (listButtons.children[29].classList.contains('single-key--active')) {
-//       listButtons.children[29].classList.remove('single-key--active');
-//       addInnerTextToButtons(lowerLetters);
-//     }
-//   } else if (event.target.innerText === 'Enter') {
-//     textarea.setRangeText('\n', textarea.selectionStart, textarea.selectionEnd, 'end');
-//   } else if (event.target.classList.contains('single-key')) {
-//     event.target.classList.add('single-key--active');
-//     console.log(event.target)
-//   }
-// };
+const buttons = document.querySelectorAll('.single-key');
 
-// document.addEventListener('click', clickMouse);
+buttons.forEach((btn) => {
+  const textarea = document.querySelector('.text-area');
+  const listButtons = document.querySelector('.keyboard');
+  let counterCapsLockSwitch = 0;
+  let isShift = false;
+  btn.addEventListener('mousedown', (eventDown) => {
+    textarea.focus();
+    btn.classList.add('single-key--active');
+    if (eventDown.target.innerText.length === 1 && eventDown.target.innerText !== '❯') {
+      textarea.setRangeText(eventDown.target.innerText, textarea.selectionEnd, textarea.selectionStart, 'end');
+    } else if (eventDown.target.innerText === 'Tab') {
+      textarea.setRangeText('   ', textarea.selectionStart, textarea.selectionEnd, 'end');
+    } else if (eventDown.target.classList.contains('single-key--space')) {
+      textarea.setRangeText(' ', textarea.selectionStart, textarea.selectionEnd, 'end');
+    } else if (eventDown.target.innerText === 'Backspace' && textarea.value.length > 0) {
+      textarea.setRangeText('', textarea.selectionStart - 1, textarea.selectionEnd, 'end');
+    } else if (eventDown.target.classList.contains('single-key--arrow-right')) {
+      textarea.setRangeText('', textarea.selectionStart + 1, textarea.selectionEnd + 1, 'end');
+    } else if (eventDown.target.classList.contains('single-key--arrow-left')) {
+      textarea.setRangeText('', textarea.selectionStart - 1, textarea.selectionEnd - 1, 'end');
+    } else if (eventDown.target.classList.contains('single-key--arrow-down')) {
+      textarea.setRangeText('', 0, 0, 'end');
+    } else if (eventDown.target.className.includes('single-key--arrow-up')) {
+      textarea.setRangeText('', textarea.value.length, textarea.value.length, 'end');
+    } else if (eventDown.target.innerText === 'CapsLock') {
+      if (counterCapsLockSwitch === 0) {
+        addInnerTextToButtons(upperLetters);
+        counterCapsLockSwitch += 1;
+      } else {
+        addInnerTextToButtons(lowerLetters);
+        counterCapsLockSwitch = 0;
+      }
+    } else if (eventDown.target.classList.contains('single-key--shift')) {
+      if (!listButtons.children[29].classList.contains('single-key--active')) {
+        addInnerTextToButtons(upperLetters);
+        isShift = false;
+      } else if (listButtons.children[29].classList.contains('single-key--active')) {
+        addInnerTextToButtons(lowerLetters);
+        isShift = true;
+      }
+    } else if (eventDown.target.innerText === 'Enter') {
+      textarea.setRangeText('\n', textarea.selectionStart, textarea.selectionEnd, 'end');
+    } else if (eventDown.target.classList.contains('single-key')) {
+      eventDown.target.classList.add('single-key--active');
+    }
+  });
+
+  btn.addEventListener('mouseup', (eventUp) => {
+    textarea.focus();
+    if (eventUp.target.innerText === 'CapsLock' && counterCapsLockSwitch === 1) {
+      eventUp.target.classList.add('single-key--active');
+      // addInnerTextToButtons(upperLetters);
+    } else if (isShift === false) {
+      addInnerTextToButtons(lowerLetters);
+      eventUp.target.classList.remove('single-key--active');
+    } else if (isShift === true) {
+      addInnerTextToButtons(upperLetters);
+      eventUp.target.classList.remove('single-key--active');
+    } else {
+      btn.classList.remove('single-key--active');
+      // addInnerTextToButtons(lowerLetters);
+    }
+  });
+});
