@@ -32,7 +32,6 @@ body {
   border: $textarea-border 3px solid;
   border-radius: 10px;
   margin: 0 auto;
-  overflow: hidden;
   display: block;
   margin-bottom: 20px;
   background-color: $textarea-back;
@@ -40,7 +39,6 @@ body {
 
 .keyboard {
   padding-top: 10px;
-  // align-items: center;
   width: 810px;
   border-radius: 10px;
   border: $textarea-border 2px solid;

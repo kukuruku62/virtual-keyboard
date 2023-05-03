@@ -1,20 +1,20 @@
 import './index.html';
 import './style.scss';
 
-const innerTextBtnsEngLower = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Del', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'Enter', 'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
+const arrInnerTextBtnsEngLower = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Del', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'Enter', 'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
 
-const innerTextBtnsEngUpper = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Backspace', 'Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', 'Del', 'CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', 'Enter', 'Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
+const arrInnerTextBtnsEngUpper = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Backspace', 'Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', 'Del', 'CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', 'Enter', 'Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
 
-const innerTextBtnsSlovakLower = [';', '~', 'ľ', 'š', 'č', 'ť', 'ž', 'ý', 'á', 'í', 'é', '=', '-', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'z', 'u', 'i', 'o', 'p', 'ú', 'ä', 'ň', 'Del', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ô', '§', 'Enter', 'Shift', 'y', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '-', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
+const arrInnerTextBtnsSlvkLower = [';', '~', 'ľ', 'š', 'č', 'ť', 'ž', 'ý', 'á', 'í', 'é', '=', '-', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'z', 'u', 'i', 'o', 'p', 'ú', 'ä', 'ň', 'Del', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ô', '§', 'Enter', 'Shift', 'y', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '-', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
 
-const innerTextBtnsSlovakUpper = ['°', '+', 'Ľ', 'Š', 'Č', 'Ť', 'Ž', 'Ý', 'Á', 'Í', 'É', '=', '+', 'Backspace', 'Tab', 'Q', 'W', 'E', 'R', 'T', 'Z', 'U', 'I', 'O', 'P', 'Ú', 'Ä', 'Ň', 'Del', 'CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Ô', '!', 'Enter', 'Shift', 'Y', 'X', 'C', 'V', 'B', 'N', 'M', '?', '_', '+', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
+const arrInnerTextBtnsSlvkUpper = ['°', '+', 'Ľ', 'Š', 'Č', 'Ť', 'Ž', 'Ý', 'Á', 'Í', 'É', '=', '+', 'Backspace', 'Tab', 'Q', 'W', 'E', 'R', 'T', 'Z', 'U', 'I', 'O', 'P', 'Ú', 'Ä', 'Ň', 'Del', 'CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Ô', '!', 'Enter', 'Shift', 'Y', 'X', 'C', 'V', 'B', 'N', 'M', '?', '_', '+', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
 
 const eventCodes = ['Backquote', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9', 'Digit0', 'Minus', 'Equal', 'Backspace', 'Tab', 'KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight', 'Backslash', 'Delete', 'CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Enter', 'ShiftLeft', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash', 'ShiftRight', 'ControlLeft', 'MetaLeft', 'AltLeft', 'Space', 'AltRight', 'ControlRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
 
-let upperLetters = innerTextBtnsEngLower;
-let lowerLetters = innerTextBtnsEngUpper;
-const upperLettersSlovak = innerTextBtnsSlovakLower;
-const lowerLettersSlovak = innerTextBtnsSlovakUpper;
+let lowerLetters = arrInnerTextBtnsEngLower;
+let upperLetters = arrInnerTextBtnsEngUpper;
+const lowerLettersSlovak = arrInnerTextBtnsSlvkLower;
+const upperLettersSlovak = arrInnerTextBtnsSlvkUpper;
 
 const createComponent = function newComponent(tag, classNam) {
   const element = document.createElement(tag, classNam);
@@ -24,7 +24,7 @@ const createComponent = function newComponent(tag, classNam) {
 
 // create buttons different sizes WITHOUT innerText
 const createButtons = function singleBtns(keyboardArea) {
-  innerTextBtnsEngLower.forEach((item) => {
+  arrInnerTextBtnsEngLower.forEach((item) => {
     const singleBtn = createComponent('div', 'single-key');
     if (item === 'Tab') {
       singleBtn.classList.add('single-key--tab');
@@ -51,7 +51,7 @@ const createWorkArea = function createWindow() {
   mainDiv.append(title);
   const textArea = createComponent('textarea', 'text-area');
   mainDiv.append(textArea);
-  textArea.focus(); // set autofocus textarea
+  textArea.focus(); // set autofocus textarea TODO remove if no necessarity
   const keyboardArea = createComponent('div', 'keyboard');
   mainDiv.append(keyboardArea);
   createButtons(keyboardArea);
@@ -73,6 +73,7 @@ const addInnerTextToButtons = function addText(arrSymbols) {
       eachBtn.innerText = '❯';
     }
     if (index === 63) {
+      eachBtn.classList.add('single-key--arrow-right');
       eachBtn.innerText = '❯';
     }
     if (index === 62) {
@@ -86,7 +87,7 @@ const addInnerTextToButtons = function addText(arrSymbols) {
   });
 };
 
-addInnerTextToButtons(innerTextBtnsEngLower);
+addInnerTextToButtons(arrInnerTextBtnsEngLower);
 
 // set data-attribute each button
 (function addDataAttributeToBtns() {
@@ -98,18 +99,16 @@ addInnerTextToButtons(innerTextBtnsEngLower);
 }());
 
 let counterChangeLanguage = 0;
-
 const addActiveClassButton = function addClass(event) {
   const listButtons = document.querySelector('.keyboard');
   const textarea = document.querySelector('textarea');
   textarea.focus();
 
-  // change language block
   if (event.shiftKey && (event.altKey && counterChangeLanguage === 0)) {
-    [lowerLetters, upperLetters] = [upperLettersSlovak, lowerLettersSlovak];
+    [lowerLetters, upperLetters] = [lowerLettersSlovak, upperLettersSlovak];
     counterChangeLanguage += 1;
   } else if (event.shiftKey && (event.altKey && counterChangeLanguage === 1)) {
-    [lowerLetters, upperLetters] = [innerTextBtnsEngUpper, innerTextBtnsEngLower];
+    [lowerLetters, upperLetters] = [arrInnerTextBtnsEngLower, arrInnerTextBtnsEngUpper];
     counterChangeLanguage = 0;
   }
 
@@ -117,12 +116,20 @@ const addActiveClassButton = function addClass(event) {
     switch (event.code) {
       case 'ShiftLeft': {
         listButtons.children[42].classList.add('single-key--active');
-        addInnerTextToButtons(upperLetters);
+        if (listButtons.children[29].classList.contains('single-key--active')) {
+          addInnerTextToButtons(lowerLetters);
+        } else if (!listButtons.children[29].classList.contains('single-key--active')) {
+          addInnerTextToButtons(upperLetters);
+        }
         break;
       }
       case 'ShiftRight': {
         listButtons.children[53].classList.add('single-key--active');
-        addInnerTextToButtons(upperLetters);
+        if (listButtons.children[29].classList.contains('single-key--active')) {
+          addInnerTextToButtons(lowerLetters);
+        } else if (!listButtons.children[29].classList.contains('single-key--active')) {
+          addInnerTextToButtons(upperLetters);
+        }
         break;
       }
       case 'ControlLeft': {
@@ -189,7 +196,7 @@ const addActiveClassButton = function addClass(event) {
       }
       case 'Tab': {
         listButtons.children[14].classList.add('single-key--active');
-        (function checkTab() {
+        (function checkTab() { // самовыз-я ф-я, отменяет деф-ое зн-е Tab, вместо этого делает отс-ы
           if (event.code === 'Tab') {
             event.preventDefault();
             textarea.setRangeText('   ', textarea.selectionStart, textarea.selectionEnd, 'end');
@@ -200,10 +207,10 @@ const addActiveClassButton = function addClass(event) {
       case 'CapsLock': {
         if (!listButtons.children[29].classList.contains('single-key--active')) {
           listButtons.children[29].classList.add('single-key--active');
-          addInnerTextToButtons(lowerLetters);
+          addInnerTextToButtons(upperLetters);
         } else if (listButtons.children[29].classList.contains('single-key--active')) {
           listButtons.children[29].classList.remove('single-key--active');
-          addInnerTextToButtons(upperLetters);
+          addInnerTextToButtons(lowerLetters);
         }
         break;
       }
@@ -236,6 +243,10 @@ const removeActiveClassButton = function delActiveClass(event) {
     addInnerTextToButtons(lowerLetters);
   }
 
+  if ((event.code === 'ShiftLeft' && listButtons.children[29].classList.contains('single-key--active')) || (event.code === 'ShiftRight' && listButtons.children[29].classList.contains('single-key--active'))) {
+    addInnerTextToButtons(upperLetters);
+  }
+
   if ((event.code !== 'ShiftLeft') && listButtons.children[42].classList.contains('single-key--active')) {
     key.forEach((element) => {
       element.classList.remove('single-key--active');
@@ -266,3 +277,22 @@ const removeActiveClassButton = function delActiveClass(event) {
 
 document.addEventListener('keydown', addActiveClassButton);
 document.addEventListener('keyup', removeActiveClassButton);
+
+// mouse action
+const clickMouse = function clickMouseOnBtns(event) {
+  const textarea = document.querySelector('textarea');
+  textarea.focus();
+  if (event.target.innerText.length === 1 && event.target.innerText !== '❯') {
+    textarea.setRangeText(event.target.innerText, textarea.selectionEnd, textarea.selectionStart, 'end');
+  } else if (event.target.innerText === 'Tab') {
+    textarea.setRangeText('   ', textarea.selectionStart, textarea.selectionEnd, 'end');
+  } else if (event.target.innerText === '') {
+    textarea.setRangeText(' ', textarea.selectionStart, textarea.selectionEnd, 'end');
+  } else if (event.target.innerText === 'Backspace' && textarea.value.length > 0) {
+    textarea.setRangeText('', textarea.selectionStart - 1, textarea.selectionEnd, 'end');
+  } else if (event.target.className.includes('single-key--arrow-right')) {
+    textarea.setRangeText('', textarea.selectionStart + 1, textarea.selectionEnd + 1, 'end');
+  }
+};
+
+document.addEventListener('click', clickMouse);
