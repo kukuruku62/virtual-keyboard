@@ -18,9 +18,9 @@ const upperLettersSlovak = arrInnerTextBtnsSlvkUpper;
 
 (function loadLanguage() {
   if (!localStorage.getItem('languageLowerLetters', 'languageUpperLetters')) {
-    window.location.reload();
     localStorage.setItem('languageLowerLetters', JSON.stringify(arrInnerTextBtnsEngLower));
     localStorage.setItem('languageUpperLetters', JSON.stringify(arrInnerTextBtnsEngUpper));
+    window.location.reload();
   }
 }());
 
