@@ -11,22 +11,18 @@ const arrInnerTextBtnsSlvkUpper = ['°', '+', 'Ľ', 'Š', 'Č', 'Ť', 'Ž', 'Ý'
 
 const eventCodes = ['Backquote', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9', 'Digit0', 'Minus', 'Equal', 'Backspace', 'Tab', 'KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight', 'Backslash', 'Delete', 'CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Enter', 'ShiftLeft', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash', 'ShiftRight', 'ControlLeft', 'MetaLeft', 'AltLeft', 'Space', 'AltRight', 'ControlRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
 
-let lowerLetters = window.localStorage.getItem('languageLowerLetters');
-let upperLetters = window.localStorage.getItem('languageLowerLetters');
+let lowerLetters = JSON.parse(window.localStorage.getItem('languageLowerLetters'));
+let upperLetters = JSON.parse(window.localStorage.getItem('languageUpperLetters'));
 const lowerLettersSlovak = arrInnerTextBtnsSlvkLower;
 const upperLettersSlovak = arrInnerTextBtnsSlvkUpper;
 
-// (function setLocalStorage() {
-//   if (!localStorage.getItem('languageLowerLetters', 'languageUpperLetters')) {
-//     window.localStorage.setItem('languageLowerLetters', arrInnerTextBtnsEngLower);
-//     window.localStorage.setItem('languageUpperLetters', arrInnerTextBtnsEngUpper);
-//   }
-// }());
-
-if (!window.localStorage.getItem('languageLowerLetters', 'languageUpperLetters')) {
-  window.localStorage.setItem('languageLowerLetters', arrInnerTextBtnsEngLower);
-  window.localStorage.setItem('languageUpperLetters', arrInnerTextBtnsEngUpper);
-}
+(function loadLanguage() {
+  if (!localStorage.getItem('languageLowerLetters', 'languageUpperLetters')) {
+    window.location.reload();
+    localStorage.setItem('languageLowerLetters', JSON.stringify(arrInnerTextBtnsEngLower));
+    localStorage.setItem('languageUpperLetters', JSON.stringify(arrInnerTextBtnsEngUpper));
+  }
+}());
 
 const createComponent = function newComponent(tag, classNam) {
   const element = document.createElement(tag, classNam);
@@ -76,7 +72,7 @@ const createWorkArea = function createWindow() {
 createWorkArea();
 
 // create innerText into buttons
-const addInnerTextToButtons = function addText(arrSymbols) {
+function addInnerTextToButtons(arrSymbols) {
   const arrayButtons = document.querySelectorAll('.single-key');
   arrayButtons.forEach((button, index) => {
     const eachBtn = button;
@@ -98,9 +94,9 @@ const addInnerTextToButtons = function addText(arrSymbols) {
       eachBtn.innerText = '❯';
     }
   });
-};
+}
 
-addInnerTextToButtons(lowerLetters.split(/(?<!m,),/));
+addInnerTextToButtons(lowerLetters);
 
 // set data-attribute each button
 (function addDataAttributeToBtns() {
@@ -120,13 +116,13 @@ const addActiveClassButton = function addClass(event) {
   if (event.shiftKey && (event.altKey && counterChangeLanguage === 0)) {
     [lowerLetters, upperLetters] = [lowerLettersSlovak, upperLettersSlovak];
     counterChangeLanguage += 1;
-    window.localStorage.setItem('languageLowerLetters', lowerLetters);
-    window.localStorage.setItem('languageUpperLetters', upperLetters);
+    localStorage.setItem('languageLowerLetters', JSON.stringify(lowerLetters));
+    localStorage.setItem('languageUpperLetters', JSON.stringify(upperLetters));
   } else if (event.shiftKey && (event.altKey && counterChangeLanguage === 1)) {
     [lowerLetters, upperLetters] = [arrInnerTextBtnsEngLower, arrInnerTextBtnsEngUpper];
     counterChangeLanguage = 0;
-    window.localStorage.setItem('languageLowerLetters', lowerLetters);
-    window.localStorage.setItem('languageUpperLetters', upperLetters);
+    localStorage.setItem('languageLowerLetters', JSON.stringify(lowerLetters));
+    localStorage.setItem('languageUpperLetters', JSON.stringify(upperLetters));
   }
 
   if (event.code === 'ShiftRight' || event.code === 'ShiftLeft' || event.code === 'ControlLeft' || event.code === 'ControlRight' || event.code === 'AltRight' || event.code === 'AltLeft' || event.code === 'Space' || event.code === 'Delete' || event.code === 'ArrowLeft' || event.code === 'ArrowRight' || event.code === 'ArrowUp' || event.code === 'ArrowDown' || event.code === 'ArrowUp' || event.code === 'MetaLeft' || event.code === 'Tab' || event.code === 'CapsLock' || event.code === 'Enter' || event.code === 'Backspace') {
@@ -213,7 +209,7 @@ const addActiveClassButton = function addClass(event) {
       }
       case 'Tab': {
         listButtons.children[14].classList.add('single-key--active');
-        (function checkTab() { // самовыз-я ф-я, отменяет деф-ое зн-е Tab, вместо этого делает отс-ы
+        (function checkTab() {
           if (event.code === 'Tab') {
             event.preventDefault();
             textarea.setRangeText('   ', textarea.selectionStart, textarea.selectionEnd, 'end');
