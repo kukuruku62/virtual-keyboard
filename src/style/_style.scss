@@ -1,0 +1,111 @@
+body {
+  background-color: $back-body;
+  color: $text;
+  height: 100vh;
+}
+
+.main-div {
+  padding-top: 10px;
+  width: 1040px;
+  background-color: $back-main-div;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 auto 10px;
+}
+
+.description {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.text-area {
+  width: 810px;
+  height: 100px;
+  border: $textarea-border 3px solid;
+  border-radius: 10px;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 20px;
+  background-color: $textarea-back;
+  resize: none;
+}
+
+.keyboard {
+  padding-top: 10px;
+  width: 810px;
+  border-radius: 10px;
+  border: $textarea-border 2px solid;
+  margin: 0 auto;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-key {
+  user-select: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 500;
+  line-height: 40px;
+  text-align: center;
+  color: #ffffff;
+  border: $text 1.5px solid;
+
+    &--backspace {
+      width: 100px;
+    }
+
+    &--tab {
+      width: 50px;
+    }
+
+    &--shift {
+      width: 125px;
+    }
+
+    &--arrow-down {
+      transform: rotate(90deg);
+      width: 16px;
+      position: relative;
+      top: 10px;
+      left: -14px;
+    }
+
+    &--arrow-left {
+      transform: rotate(180deg);
+    }
+
+    &--arrow-up {
+      transform: rotate(-90deg);
+      width: 16px;
+      position: relative;
+      top: -12px;
+      left: 15px;
+    }
+
+    &--space {
+      width: 360px;
+    }
+
+    &--active {
+      background-color: $btn-hover;
+      border-radius: 10px;
+    }
+
+    &--active-shift {
+      background-color: $text;
+    }
+}
